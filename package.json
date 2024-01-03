@@ -78,5 +78,9 @@
         "ts-node": "^10.9.2",
         "typedoc": "^0.25.6",
         "typescript": "^5.3.3"
+    },
+    "peerDependencies": {
+        "math-expression-tree": "^0.9.11",
+        "math-expression-atoms": "^0.9.13"
     }
 }
