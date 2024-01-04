@@ -9,6 +9,7 @@
             "default": "./dist/commonjs/index.min.js"
         }
     },
+    "main": "./dist/commonjs/index,js",
     "module": "./dist/esm/index.min.js",
     "types": "./dist/index.d.ts",
     "files": [
@@ -21,8 +22,9 @@
         "dist/system/index.min.js.map"
     ],
     "keywords": [
-        "my",
-        "lib"
+        "math",
+        "expression",
+        "context"
     ],
     "publishConfig": {
         "access": "public"
