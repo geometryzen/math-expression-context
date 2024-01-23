@@ -1,21 +1,34 @@
+import { Sym } from "math-expression-atoms";
 import { U } from "math-expression-tree";
 import { ExprContext } from "../src/index";
 
 class Foo implements ExprContext {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    getBinding(printname: string): U {
+    isConsSymbol(sym: Sym): boolean {
         throw new Error("Method not implemented.");
     }
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    setBinding(printname: string, binding: U): void {
+    isUserSymbol(sym: Sym): boolean {
         throw new Error("Method not implemented.");
     }
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    getUsrFunc(printname: string): U {
+    valueOf(expr: U): U {
         throw new Error("Method not implemented.");
     }
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    setUsrFunc(printname: string, usrfunc: U): void {
+    getBinding(sym: Sym): U {
+        throw new Error("Method not implemented.");
+    }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    setBinding(sym: Sym, binding: U): void {
+        throw new Error("Method not implemented.");
+    }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    getUsrFunc(sym: Sym): U {
+        throw new Error("Method not implemented.");
+    }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    setUsrFunc(sym: Sym, usrfunc: U): void {
         throw new Error("Method not implemented.");
     }
 

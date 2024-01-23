@@ -1,10 +1,14 @@
+import { Sym } from "math-expression-atoms";
 import { Cons, U } from "math-expression-tree";
 
 export interface ExprContext {
-    getBinding(printname: string): U;
-    setBinding(printname: string, binding: U): void;
-    getUsrFunc(printname: string): U;
-    setUsrFunc(printname: string, usrfunc: U): void;
+    getBinding(sym: Sym): U;
+    getUsrFunc(sym: Sym): U;
+    isConsSymbol(sym: Sym): boolean;
+    isUserSymbol(sym: Sym): boolean;
+    setBinding(sym: Sym, binding: U): void;
+    setUsrFunc(sym: Sym, usrfunc: U): void;
+    valueOf(expr: U): U;
 }
 
 /**
