@@ -4,11 +4,11 @@ import { ExprContext } from "../src/index";
 
 class Foo implements ExprContext {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    isConsSymbol(sym: Sym): boolean {
+    hasBinding(sym: Sym): boolean {
         throw new Error("Method not implemented.");
     }
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    isUserSymbol(sym: Sym): boolean {
+    hasUserFunction(sym: Sym): boolean {
         throw new Error("Method not implemented.");
     }
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -24,11 +24,11 @@ class Foo implements ExprContext {
         throw new Error("Method not implemented.");
     }
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    getUsrFunc(sym: Sym): U {
+    getUserFunction(sym: Sym): U {
         throw new Error("Method not implemented.");
     }
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    setUsrFunc(sym: Sym, usrfunc: U): void {
+    setUserFunction(sym: Sym, usrfunc: U): void {
         throw new Error("Method not implemented.");
     }
 
