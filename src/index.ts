@@ -2,6 +2,8 @@ import { Sym } from "math-expression-atoms";
 import { Cons, U } from "math-expression-tree";
 
 export interface ExprContext {
+    clearBindings(): void;
+    executeProlog(script: string[]): void;
     hasBinding(name: Sym): boolean;
     getBinding(name: Sym): U;
     setBinding(name: Sym, binding: U): void;

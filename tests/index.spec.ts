@@ -2,7 +2,14 @@ import { Sym } from "math-expression-atoms";
 import { U } from "math-expression-tree";
 import { ExprContext } from "../src/index";
 
-class Foo implements ExprContext {
+class FauxContext implements ExprContext {
+    clearBindings(): void {
+        throw new Error("Method not implemented.");
+    }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    executeProlog(script: string[]): void {
+        throw new Error("Method not implemented.");
+    }
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     hasBinding(name: Sym): boolean {
         throw new Error("Method not implemented.");
@@ -49,6 +56,6 @@ class Foo implements ExprContext {
 }
 
 test("ExprContext", function () {
-    const foo = new Foo();
+    const foo = new FauxContext();
     expect(typeof foo).toBe("object");
 });
