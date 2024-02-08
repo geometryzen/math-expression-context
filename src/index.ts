@@ -10,6 +10,9 @@ export interface ExprContext {
     setUserFunction(name: Sym, usrfunc: U): void;
     defineUserSymbol(name: Sym): void;
     valueOf(expr: U): U;
+    getDirective(directive: number): number;
+    pushDirective(directive: number, value: number): void;
+    popDirective(): void;
 }
 
 /**

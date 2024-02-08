@@ -35,6 +35,17 @@ class Foo implements ExprContext {
     defineUserSymbol(name: Sym): void {
         throw new Error("Method not implemented.");
     }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    getDirective(directive: number): number {
+        throw new Error("Method not implemented.");
+    }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    pushDirective(directive: number, value: number): void {
+        throw new Error("Method not implemented.");
+    }
+    popDirective(): void {
+        throw new Error("Method not implemented.");
+    }
 }
 
 test("ExprContext", function () {
