@@ -4,11 +4,11 @@ import { ExprContext } from "../src/index";
 
 class Foo implements ExprContext {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    hasBinding(sym: Sym): boolean {
+    hasBinding(name: Sym): boolean {
         throw new Error("Method not implemented.");
     }
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    hasUserFunction(sym: Sym): boolean {
+    hasUserFunction(name: Sym): boolean {
         throw new Error("Method not implemented.");
     }
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -16,22 +16,25 @@ class Foo implements ExprContext {
         throw new Error("Method not implemented.");
     }
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    getBinding(sym: Sym): U {
+    getBinding(name: Sym): U {
         throw new Error("Method not implemented.");
     }
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    setBinding(sym: Sym, binding: U): void {
+    setBinding(name: Sym, binding: U): void {
         throw new Error("Method not implemented.");
     }
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    getUserFunction(sym: Sym): U {
+    getUserFunction(name: Sym): U {
         throw new Error("Method not implemented.");
     }
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    setUserFunction(sym: Sym, usrfunc: U): void {
+    setUserFunction(name: Sym, usrfunc: U): void {
         throw new Error("Method not implemented.");
     }
-
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    defineUserSymbol(name: Sym): void {
+        throw new Error("Method not implemented.");
+    }
 }
 
 test("ExprContext", function () {
