@@ -1,5 +1,5 @@
 import { Sym } from "math-expression-atoms";
-import { U } from "math-expression-tree";
+import { Cons, U } from "math-expression-tree";
 import { ExprContext } from "../src/index";
 
 class FauxContext implements ExprContext {
@@ -11,7 +11,7 @@ class FauxContext implements ExprContext {
         throw new Error("Method not implemented.");
     }
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    hasBinding(name: Sym): boolean {
+    hasBinding(opr: Sym, target: Cons): boolean {
         throw new Error("Method not implemented.");
     }
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -23,7 +23,7 @@ class FauxContext implements ExprContext {
         throw new Error("Method not implemented.");
     }
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    getBinding(name: Sym): U {
+    getBinding(opr: Sym, target: Cons): U {
         throw new Error("Method not implemented.");
     }
     // eslint-disable-next-line @typescript-eslint/no-unused-vars

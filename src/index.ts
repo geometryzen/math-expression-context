@@ -4,9 +4,9 @@ import { Cons, U } from "math-expression-tree";
 export interface ExprContext {
     clearBindings(): void;
     executeProlog(script: string[]): void;
-    hasBinding(name: Sym): boolean;
-    getBinding(name: Sym): U;
-    setBinding(name: Sym, binding: U): void;
+    hasBinding(opr: Sym, target: Cons): boolean;
+    getBinding(opr: Sym, target: Cons): U;
+    setBinding(opr: Sym, binding: U): void;
     hasUserFunction(name: Sym): boolean;
     getUserFunction(name: Sym): U;
     setUserFunction(name: Sym, usrfunc: U): void;
