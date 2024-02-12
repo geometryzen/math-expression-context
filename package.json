@@ -65,8 +65,8 @@
         "@skypack/package-check": "^0.2.2",
         "@types/jest": "^29.5.12",
         "@types/rollup-plugin-peer-deps-external": "^2.2.4",
-        "@typescript-eslint/eslint-plugin": "^6.21.0",
-        "@typescript-eslint/parser": "^6.21.0",
+        "@typescript-eslint/eslint-plugin": "^7.0.0",
+        "@typescript-eslint/parser": "^7.0.1",
         "eslint": "^8.56.0",
         "gh-pages": "^6.1.1",
         "jest": "^29.7.0",
@@ -82,7 +82,7 @@
         "typescript": "^5.3.3"
     },
     "peerDependencies": {
-        "math-expression-tree": "^0.9.23",
-        "math-expression-atoms": "^0.9.30"
+        "math-expression-tree": "^0.9.26",
+        "math-expression-atoms": "^0.9.36"
     }
 }

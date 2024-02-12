@@ -1,9 +1,13 @@
 import { Sym } from "math-expression-atoms";
 import { Cons, U } from "math-expression-tree";
-import { ExprContext } from "../src/index";
+import { CompareFn, ExprContext } from "../src/index";
 
 class FauxContext implements ExprContext {
     clearBindings(): void {
+        throw new Error("Method not implemented.");
+    }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    compareFn(opr: Sym): CompareFn {
         throw new Error("Method not implemented.");
     }
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
