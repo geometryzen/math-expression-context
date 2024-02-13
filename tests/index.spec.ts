@@ -1,8 +1,12 @@
 import { Sym } from "math-expression-atoms";
-import { Cons, U } from "math-expression-tree";
-import { CompareFn, ExprContext } from "../src/index";
+import { Atom, Cons, U } from "math-expression-tree";
+import { AtomHandler, CompareFn, ExprContext } from "../src/index";
 
 class FauxContext implements ExprContext {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    handlerFor<A extends Atom>(atom: A): AtomHandler<A> {
+        throw new Error("Method not implemented.");
+    }
     clearBindings(): void {
         throw new Error("Method not implemented.");
     }
