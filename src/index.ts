@@ -9,9 +9,7 @@ export const SIGN_GT = 1;
 export type CompareFn = (lhs: U, rhs: U) => Sign;
 
 export interface AtomHandler<A extends Atom> {
-    dispatch(atom: A, opr: Sym): U;
-    subst(atom: A, oldExpr: U, newExpr: U, env: ExprContext): U;
-    valueOf(atom: A, env: ExprContext): U;
+    test(atom: A, opr: Sym, env: ExprContext): boolean;
 }
 
 export interface ExprContext {
