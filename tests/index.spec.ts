@@ -16,7 +16,7 @@ class FauxAtomHandler implements AtomHandler<Atom> {
         throw new Error("Method not implemented.");
     }
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    subst(expr: Atom, oldExpr: U, newExpr: U, env: ExprContext): boolean {
+    subst(expr: Atom, oldExpr: U, newExpr: U, env: Pick<ExprContext, 'handlerFor'>): boolean {
         throw new Error("Method not implemented.");
     }
 }
