@@ -2,10 +2,25 @@ import { Sym } from "math-expression-atoms";
 import { Atom, Cons, U } from "math-expression-tree";
 import { AtomHandler, CompareFn, ExprContext } from "../src/index";
 
+class FauxAtomHandler implements AtomHandler<Atom> {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    test(atom: Atom, opr: Sym, env: ExprContext): boolean {
+        throw new Error("Method not implemented.");
+    }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    binL(atom: Atom, opr: Sym, rhs: U, env: ExprContext): U {
+        throw new Error("Method not implemented.");
+    }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    binR(atom: Atom, opr: Sym, lhs: U, env: ExprContext): U {
+        throw new Error("Method not implemented.");
+    }
+}
+
 class FauxContext implements ExprContext {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     handlerFor<A extends Atom>(atom: A): AtomHandler<A> {
-        throw new Error("Method not implemented.");
+        return new FauxAtomHandler();
     }
     clearBindings(): void {
         throw new Error("Method not implemented.");

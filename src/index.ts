@@ -10,6 +10,8 @@ export type CompareFn = (lhs: U, rhs: U) => Sign;
 
 export interface AtomHandler<A extends Atom> {
     test(atom: A, opr: Sym, env: ExprContext): boolean;
+    binL(atom: A, opr: Sym, rhs: U, env: ExprContext): U;
+    binR(atom: A, opr: Sym, lhs: U, env: ExprContext): U;
 }
 
 export interface ExprContext {
