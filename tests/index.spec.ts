@@ -8,11 +8,15 @@ class FauxAtomHandler implements AtomHandler<Atom> {
         throw new Error("Method not implemented.");
     }
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    binL(atom: Atom, opr: Sym, rhs: U, env: ExprContext): U {
+    binL(lhs: Atom, opr: Sym, rhs: U, env: ExprContext): U {
         throw new Error("Method not implemented.");
     }
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    binR(atom: Atom, opr: Sym, lhs: U, env: ExprContext): U {
+    binR(rhs: Atom, opr: Sym, lhs: U, env: ExprContext): U {
+        throw new Error("Method not implemented.");
+    }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    subst(expr: Atom, oldExpr: U, newExpr: U, env: ExprContext): boolean {
         throw new Error("Method not implemented.");
     }
 }

@@ -9,9 +9,9 @@ export const SIGN_GT = 1;
 export type CompareFn = (lhs: U, rhs: U) => Sign;
 
 export interface AtomHandler<A extends Atom> {
-    test(atom: A, opr: Sym, env: ExprContext): boolean;
-    binL(atom: A, opr: Sym, rhs: U, env: ExprContext): U;
-    binR(atom: A, opr: Sym, lhs: U, env: ExprContext): U;
+    binL(lhs: A, opr: Sym, rhs: U, env: ExprContext): U;
+    binR(rhs: A, opr: Sym, lhs: U, env: ExprContext): U;
+    subst(expr: A, oldExpr: U, newExpr: U, env: ExprContext): boolean;
 }
 
 export interface ExprContext {
