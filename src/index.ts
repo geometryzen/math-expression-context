@@ -1,5 +1,5 @@
 import { Sym } from "math-expression-atoms";
-import { Atom, Cons, U } from "math-expression-tree";
+import { Cons, U } from "math-expression-tree";
 
 export type Sign = -1 | 0 | 1;
 export const SIGN_LT = -1;
@@ -8,17 +8,18 @@ export const SIGN_GT = 1;
 
 export type CompareFn = (lhs: U, rhs: U) => Sign;
 
-export interface AtomHandler<A extends Atom> {
-    binL(lhs: A, opr: Sym, rhs: U, env: ExprContext): U;
-    binR(rhs: A, opr: Sym, lhs: U, env: ExprContext): U;
-    subst(expr: A, oldExpr: U, newExpr: U, env: Pick<ExprContext, 'handlerFor'>): U;
+export interface ExprHandler<T extends U> {
+    binL(lhs: T, opr: Sym, rhs: U, env: ExprContext): U;
+    binR(rhs: T, opr: Sym, lhs: U, env: ExprContext): U;
+    subst(expr: T, oldExpr: U, newExpr: U, env: Pick<ExprContext, 'handlerFor'>): U;
+    test(expr: T, opr: Sym, env: ExprContext): boolean;
 }
 
 export interface ExprContext {
     clearBindings(): void;
     compareFn(opr: Sym): CompareFn;
     executeProlog(script: string[]): void;
-    handlerFor<A extends Atom>(atom: A): AtomHandler<A>;
+    handlerFor<T extends U>(expr: T): ExprHandler<T>;
     hasBinding(opr: Sym, target: Cons): boolean;
     getBinding(opr: Sym, target: Cons): U;
     setBinding(opr: Sym, binding: U): void;

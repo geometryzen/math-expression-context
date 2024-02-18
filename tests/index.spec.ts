@@ -1,29 +1,29 @@
 import { Sym } from "math-expression-atoms";
-import { Atom, Cons, U } from "math-expression-tree";
-import { AtomHandler, CompareFn, ExprContext } from "../src/index";
+import { Cons, U } from "math-expression-tree";
+import { CompareFn, ExprContext, ExprHandler } from "../src/index";
 
-class FauxAtomHandler implements AtomHandler<Atom> {
+class FauxAtomHandler implements ExprHandler<U> {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    test(atom: Atom, opr: Sym, env: ExprContext): boolean {
+    binL(lhs: U, opr: Sym, rhs: U, env: ExprContext): U {
         throw new Error("Method not implemented.");
     }
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    binL(lhs: Atom, opr: Sym, rhs: U, env: ExprContext): U {
+    binR(rhs: U, opr: Sym, lhs: U, env: ExprContext): U {
         throw new Error("Method not implemented.");
     }
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    binR(rhs: Atom, opr: Sym, lhs: U, env: ExprContext): U {
+    subst(expr: U, oldExpr: U, newExpr: U, env: Pick<ExprContext, 'handlerFor'>): U {
         throw new Error("Method not implemented.");
     }
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    subst(expr: Atom, oldExpr: U, newExpr: U, env: Pick<ExprContext, 'handlerFor'>): U {
+    test(expr: U, opr: Sym, env: ExprContext): boolean {
         throw new Error("Method not implemented.");
     }
 }
 
 class FauxContext implements ExprContext {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    handlerFor<A extends Atom>(atom: A): AtomHandler<A> {
+    handlerFor<T extends U>(expr: T): ExprHandler<T> {
         return new FauxAtomHandler();
     }
     clearBindings(): void {
