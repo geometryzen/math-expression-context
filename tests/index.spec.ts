@@ -12,6 +12,10 @@ class FauxAtomHandler implements ExprHandler<U> {
         throw new Error("Method not implemented.");
     }
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    dispatch(expr: U, opr: Sym, argList: Cons, env: ExprContext): U {
+        throw new Error("Method not implemented.");
+    }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     subst(expr: U, oldExpr: U, newExpr: U, env: Pick<ExprContext, 'handlerFor'>): U {
         throw new Error("Method not implemented.");
     }

@@ -11,6 +11,7 @@ export type CompareFn = (lhs: U, rhs: U) => Sign;
 export interface ExprHandler<T extends U> {
     binL(lhs: T, opr: Sym, rhs: U, env: ExprContext): U;
     binR(rhs: T, opr: Sym, lhs: U, env: ExprContext): U;
+    dispatch(expr: T, opr: Sym, argList: Cons, env: ExprContext): U;
     subst(expr: T, oldExpr: U, newExpr: U, env: Pick<ExprContext, 'handlerFor'>): U;
     test(expr: T, opr: Sym, env: ExprContext): boolean;
     toHumanString(expr: T, env: ExprContext): string;
