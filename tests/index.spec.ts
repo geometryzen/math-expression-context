@@ -19,6 +19,22 @@ class FauxAtomHandler implements ExprHandler<U> {
     test(expr: U, opr: Sym, env: ExprContext): boolean {
         throw new Error("Method not implemented.");
     }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    toHumanString(expr: U, env: ExprContext): string {
+        throw new Error("Method not implemented.");
+    }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    toInfixString(expr: U, env: ExprContext): string {
+        throw new Error("Method not implemented.");
+    }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    toLatexString(expr: U, env: ExprContext): string {
+        throw new Error("Method not implemented.");
+    }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    toListString(expr: U, env: ExprContext): string {
+        throw new Error("Method not implemented.");
+    }
 }
 
 class FauxContext implements ExprContext {
