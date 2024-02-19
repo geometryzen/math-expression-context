@@ -43,6 +43,10 @@ class FauxAtomHandler implements ExprHandler<U> {
 
 class FauxContext implements ExprContext {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    getSymbolPrintName(sym: Sym): string {
+        throw new Error("Method not implemented.");
+    }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     handlerFor<T extends U>(expr: T): ExprHandler<T> {
         return new FauxAtomHandler();
     }

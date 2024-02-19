@@ -36,6 +36,7 @@ export interface ExprContext {
     getDirective(directive: number): number;
     pushDirective(directive: number, value: number): void;
     popDirective(): void;
+    getSymbolPrintName(sym: Sym): string;
 }
 
 /**
