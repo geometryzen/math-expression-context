@@ -14,10 +14,6 @@ export interface ExprHandler<T extends U> {
     dispatch(expr: T, opr: Sym, argList: Cons, env: ExprContext): U;
     subst(expr: T, oldExpr: U, newExpr: U, env: Pick<ExprContext, 'handlerFor'>): U;
     test(expr: T, opr: Sym, env: ExprContext): boolean;
-    toHumanString(expr: T, env: ExprContext): string;
-    toInfixString(expr: T, env: ExprContext): string;
-    toLatexString(expr: T, env: ExprContext): string;
-    toListString(expr: T, env: ExprContext): string;
 }
 
 export interface ExprContext {
