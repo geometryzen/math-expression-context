@@ -33,6 +33,9 @@ export interface ExprContext {
     pushDirective(directive: number, value: number): void;
     popDirective(): void;
     getSymbolPrintName(sym: Sym): string;
+    hasState(key: string): boolean;
+    getState(key: string): unknown;
+    setState(key: string, value: unknown): void;
 }
 
 /**

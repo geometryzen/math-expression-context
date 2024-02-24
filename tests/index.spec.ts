@@ -26,6 +26,24 @@ class FauxAtomHandler implements ExprHandler<U> {
 }
 
 class FauxContext implements ExprContext {
+    #stateMap: Map<string, unknown> = new Map();
+    constructor() {
+        // Nothing to see here.
+    }
+    hasState(key: string): boolean {
+        return this.#stateMap.has(key);
+    }
+    getState(key: string): unknown {
+        if (this.#stateMap.has(key)) {
+            return this.#stateMap.get(key);
+        }
+        else {
+            throw new Error();
+        }
+    }
+    setState(key: string, value: unknown): void {
+        this.#stateMap.set(key, value);
+    }
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     getSymbolPrintName(sym: Sym): string {
         throw new Error("Method not implemented.");
