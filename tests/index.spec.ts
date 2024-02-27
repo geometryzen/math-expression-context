@@ -1,5 +1,5 @@
 import { Sym } from "math-expression-atoms";
-import { Cons, U } from "math-expression-tree";
+import { Cons, Shareable, U } from "math-expression-tree";
 import { CompareFn, ExprContext, ExprHandler } from "../src/index";
 
 class FauxAtomHandler implements ExprHandler<U> {
@@ -26,22 +26,35 @@ class FauxAtomHandler implements ExprHandler<U> {
 }
 
 class FauxContext implements ExprContext {
-    #stateMap: Map<string, unknown> = new Map();
+    #stateMap: Map<string, Shareable> = new Map();
+    #refCount = 1;
     constructor() {
         // Nothing to see here.
+    }
+    addRef(): void {
+        this.#refCount++;
+    }
+    release(): void {
+        this.#refCount--;
+        if (this.#refCount === 0) {
+            // Here we would release things like the state map.
+        }
     }
     hasState(key: string): boolean {
         return this.#stateMap.has(key);
     }
-    getState(key: string): unknown {
+    getState(key: string): Shareable {
         if (this.#stateMap.has(key)) {
-            return this.#stateMap.get(key);
+            const state = this.#stateMap.get(key);
+            state.addRef(); // Ideally, the map would have built-in reference counting.
+            return state;
         }
         else {
             throw new Error();
         }
     }
-    setState(key: string, value: unknown): void {
+    setState(key: string, value: Shareable): void {
+        value.addRef(); // Ideally, the map would have built-in reference counting.
         this.#stateMap.set(key, value);
     }
     // eslint-disable-next-line @typescript-eslint/no-unused-vars

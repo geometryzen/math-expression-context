@@ -1,5 +1,5 @@
 import { Sym } from "math-expression-atoms";
-import { Cons, U } from "math-expression-tree";
+import { Cons, Shareable, U } from "math-expression-tree";
 
 export type Sign = -1 | 0 | 1;
 export const SIGN_LT = -1;
@@ -16,7 +16,7 @@ export interface ExprHandler<T extends U> {
     test(expr: T, opr: Sym, env: ExprContext): boolean;
 }
 
-export interface ExprContext {
+export interface ExprContext extends Shareable {
     clearBindings(): void;
     compareFn(opr: Sym): CompareFn;
     executeProlog(script: string[]): void;
@@ -34,8 +34,8 @@ export interface ExprContext {
     popDirective(): void;
     getSymbolPrintName(sym: Sym): string;
     hasState(key: string): boolean;
-    getState(key: string): unknown;
-    setState(key: string, value: unknown): void;
+    getState(key: string): Shareable;
+    setState(key: string, value: Shareable): void;
 }
 
 /**
